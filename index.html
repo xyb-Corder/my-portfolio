@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>徐英博 - 个人主页</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
 </head>
 <body>
 
@@ -24,8 +25,10 @@
     <section id="hero" class="hero-section">
         <div class="container hero-content">
             <div class="hero-text">
-                <h1>徐英博 </h1>
-                <p class="subtitle">一名来自华中科技大学、对科研充满热忱的软件工程学生。</p>
+                <h1>徐英博</h1>
+                <p class="subtitle">
+                    我是 <span id="typed-subtitle"></span>
+                </p>
                 <a href="#projects" class="btn btn-primary">查看我的项目</a>
                 <a href="#contact" class="btn btn-secondary">联系我</a>
             </div>
@@ -37,16 +40,16 @@
 
     <section id="about" class="content-section">
         <div class="container about-content">
-            <div class="about-text">
+            <div class="about-text hidden">
                 <h2>关于我</h2>
-                <p>我叫徐英博，目前是华中科技大学软件学院  的一名大二学生。</p>
+                <p>我叫徐英博，目前是华中科技大学软件学院 的一名大二学生。</p>
                 <p>我性格乐观自信、踏实外向，可以很好地融入团队 。我对知识始终保持热忱，以开放的心态积极拓展知识边界，在探索中不断汲取新知 。</p>
             </div>
-            <div class="about-achievements">
+            <div class="about-achievements hidden">
                 <h3>教育背景与成就</h3>
                 <ul>
                     <li>华中科技大学 - 软件学院 (2024级) </li>
-                    <li>大一学年专业排名 7/92  </li>
+                    <li>大一学年专业排名 7/92 </li>
                     <li>全国大学生数学建模大赛 省级一等奖 </li>
                     <li>全球人工智能算法精英大赛 省级二等奖 </li>
                     <li>全国大学生数学竞赛 省级一等奖 </li>
@@ -60,19 +63,19 @@
         <div class="container">
             <h2 class="section-title">专业技能</h2>
             <div class="skills-grid">
-                <div class="skill-card">
+                <div class="skill-card hidden">
                     <h4>编程语言</h4>
                     <p>扎实掌握 C++，掌握 Java、Python 基础语法。</p>
                 </div>
-                <div class="skill-card">
+                <div class="skill-card hidden">
                     <h4>框架与技术</h4>
                     <p>学习过 PyTorch 深度学习框架的核心基础内容 。</p>
                 </div>
-                <div class="skill-card">
+                <div class="skill-card hidden">
                     <h4>数学基础</h4>
                     <p>熟练掌握微积分、概率论与数理统计、离散数学、线性代数 。</p>
                 </div>
-                <div class="skill-card">
+                <div class="skill-card hidden">
                     <h4>语言能力</h4>
                     <p>英语四级 (586分)。</p>
                 </div>
@@ -84,20 +87,22 @@
         <div class="container">
             <h2 class="section-title">项目集</h2>
             <div class="projects-grid">
-                <div class="project-card">
+                <div class="project-card hidden" data-modal-target="#modal-project-1">
                    
-                    <h3>全国大学生数学建模大赛</h3>
+                    <h3>全国大学生数学建模大赛（点我试试）</h3>
                     <p>作为团队核心成员，负责数据处理与模型构建，获省级一等奖 。</p>
                     <p class="tech-stack">使用技术: Python, MATLAB</p>
                 </div>
-                <div class="project-card">
-                    
+                
+                <div class="project-card hidden" data-modal-target="#modal-project-2">
+                   
                     <h3>全球人工智能算法精英大赛</h3>
                     <p>参与算法设计与 PyTorch 实现，获省级二等奖 。</p>
                     <p class="tech-stack">使用技术: Python, PyTorch </p>
                 </div>
-                <div class="project-card">
-                    
+
+                <div class="project-card hidden" data-modal-target="#modal-project-3">
+               
                     <h3>“挑战杯”全国大学生课外学术科技作品竞赛</h3>
                     <p>负责前端和后端开发，获得省级二等奖 。</p>
                     <p class="tech-stack">使用技术: C++ / Java</p>
@@ -114,12 +119,43 @@
                 <li>Email: 3288055118@qq.com</li>
                 <li>电话: 18264353882 </li>
                 <li>QQ: 3288055118 </li>
-                <li><a href="[你的 GitHub 链接]" target="https://github.com/xyb-Corder">GitHub</a></li>
-                
+                <li><a href="https://github.com/xyb-Corder" target="_blank">GitHub</a></li>
             </ul>
             <p class="copyright">&copy; 2025 徐英博 | 华中科技大学</p>
         </div>
     </footer>
+
+    <div class="modal-overlay" id="modal-project-1">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>全国大学生数学建模大赛</h2>
+            
+            <p>在数学建模大赛中，我和团队需将实际赛题抽象为数学问题，处理数据残缺与异常值，快速迭代适配模型。我们以多目标规划模型 + 遗传算法为核心，搭配灰色预测、层次分析法辅助，3 人分别负责模型搭建、编程实现、论文撰写。这段经历提升了我的问题拆解与团队协作能力，也学会平衡模型复杂度与可行性。</p>
+            <p><strong>使用的技术:</strong> Python, MATLAB, 各种数学模型库</p>
+            <a href="#" class="btn btn-secondary">查看项目代码（暂无） </a>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-project-2">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>全球人工智能算法精英大赛</h2>
+            
+            <p>我参加的 AI 大赛聚焦图像识别中的小样本目标检测任务，核心是用有限标注数据精准识别工业场景中的微小缺陷。算法创新点在于融合注意力机制与元学习框架，通过动态调整特征提取权重强化缺陷区域感知，同时用数据增强生成多样化伪样本补充训练集。最终模型检测准确率达 92.3%，较基线模型提升 8.7%，成功适配工业实时检测需求。</p>
+            <p><strong>使用的技术:</strong> Python, PyTorch</p>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-project-3">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>“挑战杯”竞赛</h2>
+            
+            <p>我参与的 “挑战杯” 项目聚焦网页翻译痛点，针对传统工具翻译碎片化、适配性差的问题，研发智能体网页翻译系统。我负责前端界面适配与交互开发，后端搭建翻译接口与网页内容爬取模块，集成自研的上下文语义关联算法。项目创新点在于智能体自动识别网页元素并精准翻译，保留原页面排版，支持多语言实时切换。</p>
+            <p><strong>使用的技术:</strong> C++ / Java</p>
+        </div>
+    </div>
+
 
     <script src="script.js"></script>
 </body>

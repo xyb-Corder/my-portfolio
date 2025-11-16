@@ -343,3 +343,103 @@ a {
         padding-top: 100px; /* 调整 padding 以适应变高的导航栏 */
     }
 }
+
+
+/* --- 新增代码：炫酷功能 --- */
+
+/* 1. 滚动淡入动画 */
+.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 2. 打字机效果的光标 */
+.typed-cursor {
+    font-size: 1.3rem;
+    color: var(--text-color);
+    opacity: 1;
+    animation: blink 0.7s infinite;
+}
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+p.subtitle {
+    /* 确保标语行高足够，防止打字时光标跳动 */
+    min-height: 2rem; 
+}
+
+
+/* 3. 项目弹窗 (Modal) 样式 */
+.project-card {
+    /* 添加手型光标，提示用户可以点击 */
+    cursor: pointer;
+}
+
+.modal-overlay {
+    /* 弹窗背景 (默认隐藏) */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 2000;
+    display: none; /* 默认隐藏 */
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal-content {
+    /* 弹窗内容框 */
+    background: var(--white-color);
+    border-radius: 8px;
+    padding: 2rem;
+    width: 90%;
+    max-width: 800px;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto; /* 内容过多时可滚动 */
+    
+    /* 弹窗出现动画 */
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.modal-content img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.modal-close {
+    /* 关闭按钮 */
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2rem;
+    color: #888;
+    cursor: pointer;
+}
+.modal-close:hover {
+    color: #333;
+}
+
+/* 当弹窗激活时 (通过JS添加 .modal-active) */
+.modal-overlay.modal-active {
+    display: flex;
+}
+
+.modal-overlay.modal-active .modal-content {
+    opacity: 1;
+    transform: scale(1);
+}
